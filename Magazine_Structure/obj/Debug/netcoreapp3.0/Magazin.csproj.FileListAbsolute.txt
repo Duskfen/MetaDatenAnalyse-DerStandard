@@ -1,0 +1,8 @@
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\Magazin.deps.json
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\Magazin.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\Magazin.pdb
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\Magazin.csprojAssemblyReference.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\Magazin.AssemblyInfoInputs.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\Magazin.AssemblyInfo.cs
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\Magazin.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\Magazin.pdb

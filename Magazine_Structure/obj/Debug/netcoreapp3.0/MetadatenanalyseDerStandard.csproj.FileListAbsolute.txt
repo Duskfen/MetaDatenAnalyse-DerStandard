@@ -1,0 +1,8 @@
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.deps.json
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\bin\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.pdb
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.csprojAssemblyReference.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.AssemblyInfoInputs.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.AssemblyInfo.cs
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\MetadatenanalyseDerStandard\obj\Debug\netcoreapp3.0\MetadatenanalyseDerStandard.pdb

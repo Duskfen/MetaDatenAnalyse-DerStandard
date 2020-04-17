@@ -1,0 +1,8 @@
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\bin\Release\netcoreapp3.0\Magazine_Structure.deps.json
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\bin\Release\netcoreapp3.0\Magazine_Structure.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\bin\Release\netcoreapp3.0\Magazine_Structure.pdb
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\obj\Release\netcoreapp3.0\Magazine_Structure.csprojAssemblyReference.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\obj\Release\netcoreapp3.0\Magazine_Structure.AssemblyInfoInputs.cache
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\obj\Release\netcoreapp3.0\Magazine_Structure.AssemblyInfo.cs
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\obj\Release\netcoreapp3.0\Magazine_Structure.dll
+D:\Documents\Programmieren, Coden\Personal Projects\MetadatenanalyseDerStandard\Magazine_Structure\obj\Release\netcoreapp3.0\Magazine_Structure.pdb

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>DerStandard Meta Data Analysis</title>
+
+    <style>
+      body {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         padding: 2em;
+         letter-spacing: -0.011em;
+         font-family: 'Inter var', sans-serif;
+         font-size: 16px;
+         color: #34495e;
+         background: #f8f9fa;
+      }
+
+      svg {
+         fill: #34495e;
+      }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+
+    </div>
+
+<script>
+
+   let parseDate = d3.timeParse("%d.%m.%Y %H:%M:%S");
+
+   function Article(date, resort, author, name, article_cicker, workload_index){
+      this.date = parseDate(date);
+      this.resort = resort;
+      this.author = author;
+      this.name = name;
+      this.article_cicker = article_cicker;
+      this.workload_index = workload_index;
+   }
+
+   let DerStandard = new Array();
+
+   async function accessData(){
+      dataset = await d3.tsv("DerStandard.tsv")
+      dataset.forEach(el => {
+          DerStandard.push(new Article(el.date, el.resort, el.author, el.article, el["article-cicker"], + el["workload-index"]));
+      });
+      console.log(DerStandard);
+   }
+   accessData().then(function(){
+      drawChart();
+   });
+
+   function drawChart(){
+      let dataset
+      let hours
+      let anzdays
+
+      let xAccessor;
+      let yAccessor;
+      let colorAccessor;
+
+      let dimensions;
+
+      let bounds; //containing the data points (is inside the wrapper)
+
+      let yScale;
+      let xScale;
+      let colorScale;
+
+      let line;
+
+
+      AccessData().then(function(){
+
+         console.log(dataset)
+         let now = Date.now();
+         CreateChartDimension();
+         DrawCanvas();
+         CreateScales();
+         DrawData();
+         DrawPeripherals();
+         console.log(Date.now()-now);
+      })
+
+
+
+      async function AccessData(){
+      dataset = DerStandard
+      
+      hours = new Array(24);
+      hours.fill(0);
+      
+      anzdays = 1;
+
+      let newdate;
+      let olddate = d3.timeDay.floor(d3.timeDay(dataset[0].date));
+
+      console.log(dataset.length)
+      for (let i = 1; i < dataset.length; i++) {
+
+         newdate = d3.timeDay.floor(d3.timeDay(dataset[i].date));
+         
+         if(newdate > olddate){
+            console.log(olddate);
+            anzdays++;
+            olddate = newdate;
+         }
+      }
+
+      for (let i = 0; i < dataset.length; i++) {
+         hours[dataset[i].date.getHours()-1]++
+      }
+      console.log(hours)
+      
+
+      xAccessor = d => d.date.getHours()
+      //yAccessor = d => d.workload_index
+      yAccessor = d => {
+         return hours[d.date.getHours()-1]
+         }
+      }
+
+      function CreateChartDimension(){
+      const width = d3.min([
+         window.innerHeight *0.9,
+         window.innerWidth*0.9
+      ]);
+
+      dimensions = {
+         width: width,
+         height: width,
+         margin: {
+            bottom:50,
+            left:50,
+            top:10,
+            right:10
+         }
+      }
+
+      console.log(dimensions)
+
+      dimensions.boundedWidth = dimensions.width - dimensions.margin.right - dimensions.margin.left;
+      dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
+
+      }
+
+      function DrawCanvas(){
+      const wrapper = d3.select('#wrapper')
+         .append("svg")
+            .attr("width", dimensions.width)
+            .attr("height", dimensions.height);
+      
+      bounds = wrapper.append("g")
+         .style("transform", "translate("+dimensions.margin.left+"px, "+dimensions.margin.top+"px)"); //left margin pushes it to the right and top margin pushes it to the bottom
+      }
+
+      function CreateScales(){
+         xScale = d3.scaleLinear()
+            .domain([0,23])
+            .range([0, dimensions.boundedWidth])
+            .nice(); //rounds the scale so the datapoints will be *in* the chart and they can be nicely displayed //bringt si in dem foi iwie nix
+
+         let hoursAccessor = d => d/anzdays;
+
+         yScale = d3.scaleLinear()
+            .domain(d3.extent(hours, hoursAccessor))
+            .range([dimensions.boundedHeight, 0])
+            .nice();
+      }
+
+      function DrawData(){
+
+         console.log("days:"+anzdays)
+
+         for (let i = 0; i < hours.length; i++) {
+            bounds.append("circle")
+               .attr("cx", xScale(i))
+               .attr("cy", yScale(hours[i]/anzdays))
+               .attr("r", 5)
+         }
+
+         // const dots = bounds.selectAll("circle")
+         //    .data(dataset)
+         //    .join("circle") //join is a shorthand for enter, append and merge
+         //       .attr("cx", d => xScale(xAccessor(d)))
+         //       .attr("cy", d => yScale(yAccessor(d)))
+         //       .attr("r", 5)
+      }
+
+      function DrawPeripherals(){
+         //x Axis
+         const xAxisGenerator = d3.axisBottom()
+            .scale(xScale)
+         const xAxis = bounds.append("g")
+            .call(xAxisGenerator)
+               .style("transform", "translateY("+dimensions.boundedHeight+"px)")
+         const xAxisLabel = xAxis.append("text")
+            .attr("x", dimensions.boundedWidth/2)
+            .attr("y", dimensions.margin.bottom-10)
+            .attr("fill", "black")
+            .style("font-size", "1.4em")
+            .html("Hours")
+         //y Axis
+         const yAxisGenerator = d3.axisLeft()
+            .scale(yScale)
+            .ticks(5)
+         const yAxis = bounds.append("g")
+            .call(yAxisGenerator)
+         const yAxisLabel = yAxis.append("text")
+            .attr("x", -dimensions.boundedHeight/2)
+            .attr("y", -dimensions.margin.left+10)
+            .attr("fill", "black")
+            .style("font-size", "1.4em")
+            .html("&#916; Articles/Day")
+            .style("transform", "rotate(-90deg)")
+            .style("text-anchor", "middle")
+      }
+   }
+   
+   
+
+</script>
+</body>
+</html>
