@@ -41,6 +41,7 @@
          background-color: red;
          padding:20px;
          text-align: center;
+         margin-top: 10px;
       }
       .circle{
          width:60px;
@@ -196,7 +197,7 @@
       })
 
       function articles(){
-         return $.getJSON("Datas/article.json")
+         return $.getJSON("Data/article.json")
       }
       function author(){
          return $.getJSON("Data/author.json");
@@ -205,11 +206,11 @@
          return $.getJSON("Data/links.json")
       }
 
-      function failed(d,s,err){
+      function failed(){
          console.log("failed loding nodejs and local data");
          d3.select("#wrapper_top")
-            .append("div").attr("id","failed loading data")
-            .append("p").text("failed")
+            .append("div").attr("id","failed")
+            .append("p").text("failed loading data")
       }
    }
 
