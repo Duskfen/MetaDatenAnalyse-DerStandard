@@ -8,14 +8,6 @@
           "build/Selenium.WebDriver.GeckoDriver.targets": {}
         }
       }
-    },
-    ".NETCoreApp,Version=v3.0/win-x86": {
-      "Selenium.WebDriver.GeckoDriver/0.26.0": {
-        "type": "package",
-        "build": {
-          "build/Selenium.WebDriver.GeckoDriver.targets": {}
-        }
-      }
     }
   },
   "libraries": {
@@ -106,24 +98,12 @@
             "version": "[3.0.1, 3.0.1]"
           },
           {
-            "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
             "name": "Microsoft.NETCore.App.Ref",
             "version": "[3.0.0, 3.0.0]"
           },
           {
-            "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
             "name": "Microsoft.WindowsDesktop.App.Ref",
             "version": "[3.0.0, 3.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[3.0.1, 3.0.1]"
           }
         ],
         "frameworkReferences": {
@@ -132,11 +112,6 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win-x86": {
-        "#import": []
       }
     }
   }
